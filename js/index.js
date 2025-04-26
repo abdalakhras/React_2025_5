@@ -85,10 +85,12 @@ animal1.speak()
 //homeWork 2,2 : 
 
 class CarFactory {
-    constructor(name,color,price,year,model,maxSpeed,driveMode,engine){
+    #factoryPrice; // this is encapsulation parameter
+    constructor(name,color,factoryPrice,year,model,maxSpeed,driveMode,engine,){
         this.carName = name
-        this.carColor = color 
-        this.carPrice = price 
+        this.carColor = color
+        this.#factoryPrice =factoryPrice 
+        this.carPrice = (factoryPrice + factoryPrice * .3 )
         this.manifactureYear = year
         this.carModel = model 
         this.speed = maxSpeed
@@ -102,7 +104,7 @@ class CarFactory {
     }
 }
 
-var factory1 = new CarFactory('BMW','white', 20.000, 2020,'X5','240 mph','3 driving mode','2500cc')
+var factory1 = new CarFactory('BMW','white', 20000, 2020,'X5','240 mph','3 driving mode','2500cc')
 console.log(factory1)
 factory1.startEngine()
 
@@ -149,7 +151,13 @@ class PickUps extends CarFactory{
 
     }
     driveMode(){
-        this.drive == 'sport'? console.log(`driving mode is ${this.drive}`) : console.log('driving mode is normal')
+        if(this.drive == 'sport'){
+            console.log(`driving mode is ${this.drive}`)
+        }
+        else{
+            this.drive == 'sport'
+            console.log('driving mode is sport')
+        }
     }
 }
 
