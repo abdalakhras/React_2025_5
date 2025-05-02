@@ -3,7 +3,7 @@ function Home (){
     return (
      <div>
         <h1>home</h1>
-        <p>welcome to the home page</p>
+        <p className ={"Ptag"}>welcome to the home page</p>
      </div>
     )
 }

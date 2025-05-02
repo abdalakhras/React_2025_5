@@ -1,0 +1,17 @@
+
+.divStyle{
+    height: 200px; width: 400px;
+    border: 3px solid pink;
+    text-align: center;
+    align-content: center;
+    transition: border 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    margin: 10px auto;
+    
+}
+.divStyle:hover{
+border: solid black 5px;
+box-shadow: 2px 2px 3px red;
+}
+.Hstyle{
+    color: aqua;
+}
