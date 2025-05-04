@@ -1,6 +1,7 @@
 import "../style/division.css"
 import Greetings from "./greetings"
 import react from "react"
+
 export default function Division(){
     
     const [name , setName] = react.useState('')

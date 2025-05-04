@@ -1,6 +1,7 @@
 import '../style/home.css'
 import react from 'react'
 import { useState } from 'react';
+import Summation from './summation';
 function Home (){
 
 const [number , setNumber] = useState(0)
@@ -18,6 +19,7 @@ const handleMinus = ()=>{
         <p>current number : {number}</p>
         <button onClick={handlePlus}>+</button>
         <button onClick={handleMinus}>-</button>
+        <br/>
      </div>
     )
 }
