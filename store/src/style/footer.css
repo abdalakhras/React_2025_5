@@ -1,0 +1,23 @@
+.footer{
+    display: flex;
+    background-color: brown;
+    /* justify-content: center; */
+    
+}
+ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+li{
+    display: inline;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.txtDcrtion{
+    text-decoration: none;
+    color:blue;
+}

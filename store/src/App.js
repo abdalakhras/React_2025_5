@@ -9,35 +9,30 @@ import Button from './components/Button';
 import ToDolist from './components/ToDolist';
 import Input from './components/Input';
 import { useState } from 'react';
+
+import {BrowserRouter , Route , Routes} from 'react-router-dom'
+import Greetings from './components/greetings';
+import Footer from './components/footer';
 function App() {
-  
-  const [inputValue , setInputValue] = useState('')
-  const [todos , setTodos] = useState('')
-  const handleToDos = ()=>{
-    setTodos(inputValue)
-  } 
   
   
   return (
- <>
- <Nav/>
- <h1>Hi this is our first react app</h1>
- <Division/>
-<Home/> 
-<Summation name ='Abed' age ='30'/>
-<br/>
-<br/>
-<Title text='this is ract to do '/>
-<Input value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
-<Button text='add to do' onClick={handleToDos}/>
-<ToDolist todo={todos}/>
+ 
+ <BrowserRouter>
+  <Nav/>
+  <Routes>
+    <Route path='/' element={<Home/>} />
+    <Route path='/greetings' element={<Greetings/>}/>
+  </Routes>
+
+
+  <Footer/>
+ </BrowserRouter>
+ 
+  
  
  
- 
- 
- 
- 
- </>
+
   );
 }
 

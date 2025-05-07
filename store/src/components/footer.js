@@ -1,11 +1,11 @@
-import '../style/nav.css'
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import '../style/footer.css'
 
-export default function Nav(){
+export default function Footer (){
     return(
-        <nav>
+        <footer className="footer">
             <ul>
-                <li className='txtDcrtion'>
+                <li>
                     <Link className='txtDcrtion' to='/'>Home</Link>
                     </li>
                 <li>
@@ -15,6 +15,6 @@ export default function Nav(){
                 <li></li>
                 <li></li>
             </ul>
-        </nav>
+        </footer>
     )
-} 
+}
