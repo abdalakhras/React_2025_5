@@ -1,19 +1,22 @@
 // these functioons where removed from app()
-import Home from './components/home';
-import Nav from './components/nav';
-import Division from './components/division';
-import Summation from './components/summation';
-import Title from './components/Title';
-import Button from './components/Button';
-import ToDolist from './components/ToDolist';
-import Input from './components/Input';
+import React from 'react';
+import Home from './home'
+import Nav from './nav'
+import Division from './division'
+import Summation from './summation';
+import Title from './Title'
+import Button from './Button';
+import ToDolist from './ToDolist';
+import Input from './Input';
 import { useState } from 'react';
 
-export default function newComponent (){
+
+
+export default function NewComponent (){
 
   
   const [inputValue , setInputValue] = useState('')
-  const [todos , setTodos] = useState('')
+  const [todos , setTodos] = useState([])
   const handleToDos = ()=>{
     setTodos(inputValue)
 
@@ -21,21 +24,17 @@ export default function newComponent (){
   return(
 
     <>
-    <Nav/>
+
     <h1>Hi this is our first react app</h1>
     <Division/>
-   <Home/> 
+  
    <Summation name ='Abed' age ='30'/>
    <br/>
    <br/>
    <Title text='this is ract to do '/>
    <Input value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
    <Button text='add to do' onClick={handleToDos}/>
-   <ToDolist todo={todos}/>
-    
-    
-    
-    
+   <ToDolist todos = {todos}/>
     
     
     </>

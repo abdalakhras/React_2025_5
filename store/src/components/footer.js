@@ -12,7 +12,9 @@ export default function Footer (){
                     <Link to='/greetings'>Greetings</Link>
                     </li>
 
-                <li></li>
+                <li>
+                    <Link className='txtDcrtion' to = '/newComponent'>NewComponent</Link>
+                </li>
                 <li></li>
             </ul>
         </footer>

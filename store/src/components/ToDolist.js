@@ -6,4 +6,4 @@ const ToDolist = ({todo})=>(
         {todo}
     </ul>
 )
-export default ToDolist;
+export default ToDolist
