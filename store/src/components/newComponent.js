@@ -34,7 +34,7 @@ export default function NewComponent (){
    <Title text='this is ract to do '/>
    <Input value={inputValue} onChange={(e)=>setInputValue(e.target.value)}/>
    <Button text='add to do' onClick={handleToDos}/>
-   <ToDolist todos = {todos}/>
+   <ToDolist todo = {todos}/>
     
     
     </>

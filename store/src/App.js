@@ -9,19 +9,23 @@ import Footer from './components/footer';
 
 import NewComponent from './components/newComponent';
 
+import ResponsiveAppBar from './components/responsivebar';
+import SimpleBottomNavigation from './components/bottomNavigation';
+
 function App() {
   
   
   return (
  
  <BrowserRouter>
-  <Nav/>
+  <ResponsiveAppBar/>
   <Routes>
     <Route path='/' element={<Home/>} />
     <Route path='/greetings' element={<Greetings/>}/>
     <Route path='/newComponent' element={<NewComponent/>}/>
   </Routes>
 
+  <SimpleBottomNavigation/>
   <Footer/>
  </BrowserRouter>
  
