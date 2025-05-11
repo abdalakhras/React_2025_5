@@ -12,6 +12,8 @@ import NewComponent from './components/newComponent';
 import ResponsiveAppBar from './components/responsivebar';
 import SimpleBottomNavigation from './components/bottomNavigation';
 
+import UserMenuDemo from './components/testComponent';
+
 function App() {
   
   
@@ -19,6 +21,7 @@ function App() {
  
  <BrowserRouter>
   <ResponsiveAppBar/>
+  <UserMenuDemo/>
   <Routes>
     <Route path='/' element={<Home/>} />
     <Route path='/greetings' element={<Greetings/>}/>
@@ -26,6 +29,7 @@ function App() {
   </Routes>
 
   <SimpleBottomNavigation/>
+  
   <Footer/>
  </BrowserRouter>
  
