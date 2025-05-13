@@ -11,7 +11,7 @@ import NewComponent from './components/newComponent';
 
 import ResponsiveAppBar from './components/responsivebar';
 import SimpleBottomNavigation from './components/bottomNavigation';
-
+import RecipeReviewCard from './components/recipeCard';
 import UserMenuDemo from './components/testComponent';
 
 function App() {
@@ -27,6 +27,8 @@ function App() {
     <Route path='/greetings' element={<Greetings/>}/>
     <Route path='/newComponent' element={<NewComponent/>}/>
   </Routes>
+
+  <RecipeReviewCard/>
 
   <SimpleBottomNavigation/>
   
