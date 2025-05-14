@@ -26,6 +26,10 @@ function Home (){
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const[listOfNames , setListOfNames] = useState([])
+  const[listOfAges , setListOfAges] = useState([])
+
+//   functions added by me
   const[name, setName] = useState('')
   const handleName = (event)=>{
     setName(event.target.value)
@@ -35,7 +39,7 @@ function Home (){
   const handelNumber =(e)=>{
     setNumber(e.target.value)
   }
-
+// if you wanna call this function by onClick , just change the variable name in p-tage
   const[age,setAge] = useState(0)
   const handleAge =()=>{
     setAge(number)
@@ -68,8 +72,18 @@ function Home (){
      */}
 <div>
     <h1>welcome</h1>
-    <p>your name is : {userName}</p>
-    <p>your age is : {age}</p>
+    {/* <p>your name is : {name}</p> */}
+    {/* <p>your age is : {number}</p> */}
+
+    {listOfNames.map((name, index)=>(
+        <div key = {index}> 
+        <h2>name number {index + 1} : {name}</h2>
+        <p>{listOfAges[index]}</p>
+        </div>
+    )
+
+    )}
+
 </div>
  <div>
       <Button onClick={handleOpen}>Open modal</Button>
@@ -79,13 +93,18 @@ function Home (){
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
+        {/* changes added by me */}
         <Box sx={style}>
+            <form onSubmit={(e)=>{
+                e.preventDefault();
+                handleClose();
+                setListOfNames([...listOfNames,name])
+                setListOfAges([...listOfAges,number])
+            }}>
           <input onChange={handleName} type = 'text' placeholder='enter your name'/>
           <input onChange = {handelNumber} type ='number' placeholder='enter your age'/>
-          <button onClick={()=>{
-            handleAge()
-            handleUserName()
-          }}>submit</button>
+          <button  type='submit'>submit</button>
+          </form>
         </Box>
       </Modal>
     </div>
