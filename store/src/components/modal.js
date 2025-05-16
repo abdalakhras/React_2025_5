@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import { colors } from '@mui/material';
 
 const style = {
   position: 'absolute',
@@ -16,14 +17,25 @@ const style = {
   p: 4,
 };
 
+const style2 = {
+  margin: '50px auto',
+  width: '400px',
+  backGroundColor: 'red',
+  color : 'blue',
+}
+
 export default function BasicModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [name,setName] =React.useState('hi')
+  const [age,setAge] = React.useState(0)
+
   return (
+    <>
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Open this modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -32,13 +44,24 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            my form and input
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <form onSubmit={(e)=>{
+            e.preventDefault()
+            handleClose()
+          }
+          }>
+            <input onChange={(e)=>{setName(e.target.value)}} type = 'text' placeholder='enter your name'/>
+             <input onChange={(e)=>{setAge(e.target.value)}} type ='number' placeholder='enter your age'/>
+             <Button type='submit'>submit</Button>
+          </form>
         </Box>
       </Modal>
     </div>
+
+
+    <p style= {style2}>{name}</p>
+  <p style={style2}>{age}</p>
+    </>
   );
 }
