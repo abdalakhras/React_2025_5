@@ -9,7 +9,7 @@ import Button from './Button';
 import ToDolist from './ToDolist';
 import Input from './Input';
 import { useState } from 'react';
-
+import BasicModal from './modal';
 
 
 export default function NewComponent (){
@@ -36,7 +36,7 @@ export default function NewComponent (){
    <Button text='add to do' onClick={handleToDos}/>
    <ToDolist todo = {todos}/>
     
-    
+    <BasicModal/>
     </>
   )
 }

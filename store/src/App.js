@@ -28,8 +28,7 @@ function App() {
     <Route path='/newComponent' element={<NewComponent/>}/>
   </Routes>
 
-  <RecipeReviewCard/>
-
+  
   <SimpleBottomNavigation/>
   
   <Footer/>
