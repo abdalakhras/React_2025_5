@@ -24,7 +24,7 @@ const style2 = {
   color : 'blue',
 }
 
-export default function BasicModal() {
+export default function ObjectasicModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -32,15 +32,18 @@ export default function BasicModal() {
   const [name,setName] =React.useState('hi')
   const [age,setAge] = React.useState(0)
 
-  const [listOfNames,setListOfNames] = React.useState([])
-  const [listOfAges,setListOfAges] = React.useState([])
+  const objectUser = [
+    { age1 : age , name1 : name,}
+  ];
 
+  const [listOfNames,setListOfNames] = React.useState([])
+   
   console.log(listOfNames)
 
   return (
     <>
     <div>
-      <Button onClick={handleOpen}>Open this modal</Button>
+      <Button onClick={handleOpen}>Open object modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -54,30 +57,26 @@ export default function BasicModal() {
           <form onSubmit={(e)=>{
             e.preventDefault()
             handleClose()
-            setListOfNames([...listOfNames,name])
-            setListOfAges([...listOfAges,age])
+            setListOfNames([...listOfNames,objectUser])
           }
           }>
-            <input onChange={(e)=>{setName(e.target.value)}} type = 'text' placeholder='enter your name'/>
-             <input onChange={(e)=>{setAge(e.target.value)}} type ='number' placeholder='enter your age'/>
+            <input  onChange={(e)=>{setName(e.target.value)}}  type = 'text' placeholder='enter your name'/>
+             <input  onChange={(e)=>{setAge(e.target.value)}} type ='number' placeholder='enter your age'/>
              <Button type='submit'>submit</Button>
           </form>
         </Box>
       </Modal>
     </div>
 
-     <div>
-      {listOfNames.map((name,index)=>(
-        <div key = {index}> 
-        <p style= {style2}>name is {index + 1} : {name}</p>
-        <p style={style2}>{listOfAges[index]}</p>
+      <div>
+      {listOfNames.map((user,index)=>(
+        <div> 
+        <p style= {style2} key = {index}>name and age is : {user}</p>
         </div>
-      
-
       )
       )}
-
-</div>
+    </div>
+      
 
     </>
   );

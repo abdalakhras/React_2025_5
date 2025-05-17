@@ -1,12 +1,4 @@
-
-// export default function Greetings(props){
-//     return (
-//         <>
-//         <p>welcome {props.name}</p>
-//         </>
-//     )
-
-// } 
+import ObjectasicModal from "./objectModal"
 
 
 // this is an Arrow function ,,, the same as the one above
@@ -20,6 +12,8 @@ const Greetings = (prop)=>{
     return(
         <>
         <p style={greetingStyle}>welcome {prop.name} {prop.age}</p>
+
+        <ObjectasicModal/>
         </>
     )
 
