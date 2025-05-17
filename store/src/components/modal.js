@@ -32,6 +32,9 @@ export default function BasicModal() {
   const [name,setName] =React.useState('hi')
   const [age,setAge] = React.useState(0)
 
+  const [listOfNames,setListOfNames] = React.useState([])
+  const [listOfAges,setListOfAges] = React.useState([])
+
   return (
     <>
     <div>
@@ -49,6 +52,8 @@ export default function BasicModal() {
           <form onSubmit={(e)=>{
             e.preventDefault()
             handleClose()
+            setListOfNames([...listOfNames,name])
+            setListOfAges([...listOfAges,age])
           }
           }>
             <input onChange={(e)=>{setName(e.target.value)}} type = 'text' placeholder='enter your name'/>
@@ -59,9 +64,19 @@ export default function BasicModal() {
       </Modal>
     </div>
 
+     <div>
+      {listOfNames.map((name,index)=>(
+        <div key = {index}> 
+        <p style= {style2}>name is {index + 1} : {name}</p>
+        <p style={style2}>{listOfAges[index]}</p>
+        </div>
+      
 
-    <p style= {style2}>{name}</p>
-  <p style={style2}>{age}</p>
+      )
+      )}
+
+</div>
+
     </>
   );
 }
