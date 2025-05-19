@@ -31,14 +31,20 @@ export default function ObjectasicModal() {
 
   const [name,setName] =React.useState('hi')
   const [age,setAge] = React.useState(0)
+  const [iD,setId] = React.useState(0)
+  const handleId = ()=>{
+    setId (iD + 1)
+  }
+    console.log(iD)
+    
+  const objectUser = { id : iD , age1 : age , name1 : name,};
+  
 
-  const objectUser = [
-    { age1 : age , name1 : name,}
-  ];
 
   const [listOfNames,setListOfNames] = React.useState([])
    
   console.log(listOfNames)
+
 
   return (
     <>
@@ -58,6 +64,7 @@ export default function ObjectasicModal() {
             e.preventDefault()
             handleClose()
             setListOfNames([...listOfNames,objectUser])
+            handleId()
           }
           }>
             <input  onChange={(e)=>{setName(e.target.value)}}  type = 'text' placeholder='enter your name'/>
@@ -69,9 +76,9 @@ export default function ObjectasicModal() {
     </div>
 
       <div>
-      {listOfNames.map((user,index)=>(
-        <div> 
-        <p style= {style2} key = {index}>name and age is : {user}</p>
+      {listOfNames.map((user)=>(
+        <div key = {user.id}> 
+        <p style= {style2} >name and age is : {user.name1} {user.age1}</p>
         </div>
       )
       )}
