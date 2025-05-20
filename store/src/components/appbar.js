@@ -17,7 +17,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Button from '@mui/material/Button';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-
+import CallIcon from '@mui/icons-material/Call';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -171,7 +171,7 @@ export default function PrimarySearchAppBar() {
       {(popupState) => (
         <React.Fragment>
           
-            <MenuIcon variant="contained" {...bindTrigger(popupState)} />
+            <MenuIcon variant="contained" color='error' {...bindTrigger(popupState)} />
           
           <Menu {...bindMenu(popupState)}>
             <MenuItem onClick={popupState.close}>Profile</MenuItem>
@@ -213,8 +213,8 @@ export default function PrimarySearchAppBar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+              <Badge badgeContent={25} color="error">
+                <CallIcon />
               </Badge>
             </IconButton>
             <IconButton

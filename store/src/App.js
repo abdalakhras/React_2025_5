@@ -13,6 +13,7 @@ import ResponsiveAppBar from './components/responsivebar';
 import SimpleBottomNavigation from './components/bottomNavigation';
 import RecipeReviewCard from './components/recipeCard';
 import UserMenuDemo from './components/testComponent';
+import MediaCard from './components/objectMapTest';
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
  
  <BrowserRouter>
   <ResponsiveAppBar/>
-  <UserMenuDemo/>
+  {/* <UserMenuDemo/> */}
   <Routes>
     <Route path='/' element={<Home/>} />
     <Route path='/greetings' element={<Greetings/>}/>
@@ -30,7 +31,7 @@ function App() {
 
   
   <SimpleBottomNavigation/>
-  
+  <MediaCard/>
   <Footer/>
  </BrowserRouter>
  
