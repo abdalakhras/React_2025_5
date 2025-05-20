@@ -15,35 +15,76 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 
-
-
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: (theme.vars ?? theme).palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
 
 
 export default function MediaCard() {
 
-    const userObject = [
-    {id : 1 , title : "card1" , discription : "nthn"},
-    {id : 2 , title : "card2" , discription : "nthn"},
-    {id : 3 , title : "card3" , discription : "nthn"},
-]
 
-console.log(userObject)
 
-console.log(typeof[userObject])
+
+
+    const[iD,setId]=React.useState(0)
+    const handleID =()=>{
+        setId(iD + 1)
+    }
+
+    const[Title,setTitle]=React.useState('')
+   const[Discription,setDiscription]=React.useState('')
+
+   const[listOFButtons,setListOfButtons]=React.useState([])
+
+    const userObject = 
+    {id : iD , title : Title , discription : Discription }
+
+    
+// console.log(userObject)
+
    
 
   return (
     <>
-    
-    <br/>
- {userObject.map((card,index)=>(
 
-            <div >
-    <h1>hi</h1>
-<Button color='success'>{card.title}</Button>
+   
+
+    <form onSubmit={(e)=>{
+        e.preventDefault()
+        handleID()
+        setListOfButtons([...listOFButtons,userObject])
+    }}>
+    <input onChange={(e)=>{setTitle(e.target.value)}} type='text' placeholder='enter title'/>
+    <input  onChange={(e)=>{setDiscription(e.target.value)}} type='text' placeholder='enter title'/>
+    <button type='submit' >submit</button>
+    </form>
+
+    <br/>
+ {listOFButtons.map((btn)=>(
+
+            <div key={btn.id} >
+
+   <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        <Grid size={{ xs: 6, md: 8 }}>
+          <Item><Button color='success'>{btn.title}</Button></Item>
+        </Grid>
+        </Grid>
+        </Box>
+
 
 
         </div>
