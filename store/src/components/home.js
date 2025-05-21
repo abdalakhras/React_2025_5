@@ -27,8 +27,8 @@ const style = {
   p: 4,
 };
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(dessert, calories, fat, carbs, protein) {
+  return { dessert, calories, fat, carbs, protein };
 }
 
 // const rows = [
@@ -76,7 +76,7 @@ const[calories,setCalories]=useState('')
 const[fat,setFat]=useState('')
 const[carbs,setCarbs]=useState('')
 const[protine,setProtine]=useState('')
-const[row,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+const[rows,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),])
 
 // const [number , setNumber] = useState(0)
@@ -142,7 +142,7 @@ const[row,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
             <form onSubmit={(e)=>{
               e.preventDefault()
               console.log(dessert)
-              setRow([...row,createData(dessert, calories, fat, carbs, protine)])
+              setRow([...rows,createData(dessert, calories, fat, carbs, protine)])
             }}>
               <input onChange={(e)=>{setDessert(e.target.value)}} type='text' placeholder='Dessert (100g serving)'/>
                <input onChange={(e)=>{setCalories(e.target.value)}}  type='text' placeholder='>Calories'/>
@@ -160,21 +160,35 @@ const[row,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
             <TableCell align="right">Fat&nbsp;(g)</TableCell>
             <TableCell align="right">Carbs&nbsp;(g)</TableCell>
             <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell>action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {row.map((row) => (
+          {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.dessert}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.dessert}
               </TableCell>
               <TableCell align="right">{row.calories}</TableCell>
               <TableCell align="right">{row.fat}</TableCell>
               <TableCell align="right">{row.carbs}</TableCell>
               <TableCell align="right">{row.protein}</TableCell>
+              <button onClick={(e)=>{
+                var wantToDelete = window.confirm('want to delete ?')
+                console.log(wantToDelete)
+                if(wantToDelete){
+                  const newRow = rows.filter((item)=>{
+                    return item.dessert !== row.dessert
+                  });
+                  console.log(newRow)
+                  setRow(newRow)
+                }
+              
+            
+              }}>delete</button>
             </TableRow>
           ))}
         </TableBody>
