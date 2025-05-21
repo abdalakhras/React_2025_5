@@ -30,8 +30,8 @@ function App() {
   </Routes>
 
   
-  <SimpleBottomNavigation/>
-  <MediaCard/>
+  {/* <SimpleBottomNavigation/> */}
+  {/* <MediaCard/> */}
   <Footer/>
  </BrowserRouter>
  
