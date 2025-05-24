@@ -27,8 +27,8 @@ const style = {
   p: 4,
 };
 
-function createData(dessert, calories, fat, carbs, protein) {
-  return { dessert, calories, fat, carbs, protein };
+function createData(id,dessert, calories, fat, carbs, protein) {
+  return { id, dessert, calories, fat, carbs, protein };
 }
 
 // const rows = [
@@ -46,6 +46,10 @@ function Home (){
     const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+    const [open2, setOpen2] = React.useState(false);
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
 
   const[listOfNames , setListOfNames] = useState([])
   const[listOfAges , setListOfAges] = useState([])
@@ -76,8 +80,8 @@ const[calories,setCalories]=useState('')
 const[fat,setFat]=useState('')
 const[carbs,setCarbs]=useState('')
 const[protine,setProtine]=useState('')
-const[rows,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),])
+const[rows,setRow] = useState([ createData(0, 'Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData(1, 'Ice cream sandwich', 237, 9.0, 37, 4.3),])
 
 // const [number , setNumber] = useState(0)
 // const handlePlus = ()=>{
@@ -142,7 +146,7 @@ const[rows,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
             <form onSubmit={(e)=>{
               e.preventDefault()
               console.log(dessert)
-              setRow([...rows,createData(dessert, calories, fat, carbs, protine)])
+              setRow([...rows,createData(rows.length, dessert, calories, fat, carbs, protine)])
             }}>
               <input onChange={(e)=>{setDessert(e.target.value)}} type='text' placeholder='Dessert (100g serving)'/>
                <input onChange={(e)=>{setCalories(e.target.value)}}  type='text' placeholder='>Calories'/>
@@ -166,7 +170,7 @@ const[rows,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.dessert}
+              key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
@@ -181,19 +185,41 @@ const[rows,setRow] = useState([ createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
                 console.log(wantToDelete)
                 if(wantToDelete){
                   const newRow = rows.filter((item)=>{
-                    return item.dessert !== row.dessert
+                    return item.id !== row.id
                   });
                   console.log(newRow)
+                  // console.log(row)
                   setRow(newRow)
                 }
               
             
               }}>delete</button>
+              <button onClick={handleOpen2}>update</button>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+
+    {/* this is modal 2 for updating the row */}
+     {/* <Button>Open modal 2</Button> */}
+      <Modal
+        open={open2}
+        onClose={handleClose2}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+        <form>
+          <input type='text' placeholder='Dessert (100g serving)'/>
+           <input type='number' placeholder='Calories	' />
+          <input type='number' placeholder='Fat (g)	' />
+           <input type='number' placeholder='Carbs (g)'/>
+            <input type='number' placeholder='Protein (g)' />
+            <button>comfirm</button>
+        </form>
+        </Box>
+      </Modal>
 
         </>
     )
