@@ -15,6 +15,9 @@ export default function Footer (){
                 <li>
                     <Link className='txtDcrtion' to = '/newComponent'>NewComponent</Link>
                 </li>
+                <li>
+                    <Link to= '/table'>table</Link>
+                </li>
             <ColorButtons/>
             </ul>
         </footer>

@@ -14,7 +14,7 @@ import SimpleBottomNavigation from './components/bottomNavigation';
 import RecipeReviewCard from './components/recipeCard';
 import UserMenuDemo from './components/testComponent';
 import MediaCard from './components/objectMapTest';
-
+import DenseTable from './components/table';
 function App() {
   
   
@@ -27,6 +27,7 @@ function App() {
     <Route path='/' element={<Home/>} />
     <Route path='/greetings' element={<Greetings/>}/>
     <Route path='/newComponent' element={<NewComponent/>}/>
+    <Route path='/table' element={<DenseTable/>}/>
   </Routes>
 
   
