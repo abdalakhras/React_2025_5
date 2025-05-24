@@ -16,6 +16,9 @@ export default function Footer (){
                     <Link className='txtDcrtion' to = '/newComponent'>NewComponent</Link>
                 </li>
                 <li>
+                    <Link to='/objectMaptest'>objectMapTest</Link>
+                </li>
+                <li>
                     <Link to= '/table'>table</Link>
                 </li>
             <ColorButtons/>

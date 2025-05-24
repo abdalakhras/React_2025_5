@@ -28,6 +28,7 @@ function App() {
     <Route path='/greetings' element={<Greetings/>}/>
     <Route path='/newComponent' element={<NewComponent/>}/>
     <Route path='/table' element={<DenseTable/>}/>
+    <Route path='/objectMapTest' element={<MediaCard/>}></Route>
   </Routes>
 
   

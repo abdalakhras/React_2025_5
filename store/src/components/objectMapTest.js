@@ -41,7 +41,7 @@ export default function MediaCard() {
 
     const[iD,setId]=React.useState(0)
     const handleID =()=>{
-        setId(iD + 1)
+        setId(iD + 1) // or you can use setID(listOFButtons.length) as the value of iD
     }
 
     const[Title,setTitle]=React.useState('')
@@ -69,7 +69,7 @@ export default function MediaCard() {
     }}>
     <input onChange={(e)=>{setTitle(e.target.value)}} type='text' placeholder='enter title'/>
     <input  onChange={(e)=>{setDiscription(e.target.value)}} type='text' placeholder='enter title'/>
-    <button type='submit' >submit</button>
+    <button type='submit' >add Button</button>
     </form>
 
     <br/>
@@ -80,7 +80,7 @@ export default function MediaCard() {
    <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 6, md: 8 }}>
-          <Item><Button color='success'>{btn.title}</Button></Item>
+          <Item><Button color='success'>{btn.title} {btn.discription}</Button></Item>
         </Grid>
         </Grid>
         </Box>
