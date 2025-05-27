@@ -31,7 +31,9 @@ function App() {
     <Route path='/objectMapTest' element={<MediaCard/>}></Route>
   </Routes>
 
-  
+  <br/>
+  <br/>
+  <hr/>
   {/* <SimpleBottomNavigation/> */}
   {/* <MediaCard/> */}
   <Footer/>
