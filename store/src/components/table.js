@@ -153,9 +153,12 @@ export default function DenseTable() {
               if(itm.id===updatedId){
                 return createData(updatedId,updatedDessert,updatedCalories,updatedFat,updatedCarbs,updatedProtein)
               }
+              console.log(itm)
               return itm;
             })
             console.log(updatedRow)
+            console.log(`updated id is :${updatedId}`)
+            
             setRows(updatedRow)
           }
           }>
@@ -164,6 +167,7 @@ export default function DenseTable() {
               <input  type ='number' placeholder='Fat (g)	'  onChange={(e)=>{setUpdatedFat(e.target.value)}} value={updatedFat}/>
                <input  type ='number' placeholder='Carbs (g)	'  onChange={(e)=>{setUpdatedCarbs(e.target.value)}} value={updatedCarbs}/>
                 <input  type ='number' placeholder='Protein (g)	' onChange={(e)=>{setUpdatedProtein(e.target.value)}} value={updatedProtein}/>
+                <p> updated id is : {updatedId}</p>
              <Button type='submit'>submit</Button>
           </form>
         </Box>
