@@ -21,7 +21,9 @@ export default function Footer (){
                 <li>
                     <Link to= '/table'>table</Link>
                 </li>
-            <ColorButtons/>
+            <li>
+                <Link to='/facts'>Facts</Link>
+            </li>
             </ul>
         </footer>
     )

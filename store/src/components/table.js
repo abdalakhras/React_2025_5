@@ -151,6 +151,7 @@ export default function DenseTable() {
             handleClose()
             const updatedRow = rows.map((itm)=>{
               if(itm.id===updatedId){
+                 console.log(itm)
                 return createData(updatedId,updatedDessert,updatedCalories,updatedFat,updatedCarbs,updatedProtein)
               }
               console.log(itm)

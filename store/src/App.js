@@ -15,11 +15,14 @@ import RecipeReviewCard from './components/recipeCard';
 import UserMenuDemo from './components/testComponent';
 import MediaCard from './components/objectMapTest';
 import DenseTable from './components/table';
+import Facts from './components/facts';
+import MyContext from './components/myContext';
 function App() {
   
+  const sharedValue = 'hello from MyContext'
   
   return (
- 
+ <MyContext.Provider value={sharedValue}>
  <BrowserRouter>
   <ResponsiveAppBar/>
   {/* <UserMenuDemo/> */}
@@ -29,6 +32,7 @@ function App() {
     <Route path='/newComponent' element={<NewComponent/>}/>
     <Route path='/table' element={<DenseTable/>}/>
     <Route path='/objectMapTest' element={<MediaCard/>}></Route>
+    <Route path='/facts' element={<Facts/>}></Route>
   </Routes>
 
   <br/>
@@ -41,7 +45,7 @@ function App() {
  
   
  
- 
+ </MyContext.Provider>
 
   );
 }
