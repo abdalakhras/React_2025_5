@@ -119,6 +119,7 @@ export default function DenseTable() {
               console.log(wantToDelete)
               if(wantToDelete){
                 const newRow = rows.filter((item)=>{
+                  console.log(row)
                   return item.id !== row.id
                 });
                  console.log(newRow)

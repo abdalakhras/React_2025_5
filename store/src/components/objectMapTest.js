@@ -52,7 +52,8 @@ export default function MediaCard() {
     const userObject = 
     {id : iD , title : Title , discription : Discription }
 
-    
+  
+
 // console.log(userObject)
 
    
@@ -66,6 +67,8 @@ export default function MediaCard() {
         e.preventDefault()
         handleID()
         setListOfButtons([...listOFButtons,userObject])
+        console.log(userObject)
+        // console.log(userObject.id)
     }}>
     <input onChange={(e)=>{setTitle(e.target.value)}} type='text' placeholder='enter title'/>
     <input  onChange={(e)=>{setDiscription(e.target.value)}} type='text' placeholder='enter title'/>
@@ -80,12 +83,14 @@ export default function MediaCard() {
    <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid size={{ xs: 6, md: 8 }}>
-          <Item><Button color='success'>{btn.title} {btn.discription}</Button></Item>
+          <Item><Button color='success'
+          >{btn.title} {btn.discription} <button  onClick={()=>{console.log(btn.id)}}>show id</button>
+          </Button></Item>
         </Grid>
         </Grid>
         </Box>
 
-
+        
 
         </div>
         
