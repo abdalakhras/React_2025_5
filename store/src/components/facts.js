@@ -36,6 +36,7 @@ fetchFacts()
         <p>
             {facts ? facts.text : 'Loading...'}
         </p>
+        
         </>
     )
 }

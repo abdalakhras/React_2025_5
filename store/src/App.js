@@ -17,12 +17,15 @@ import MediaCard from './components/objectMapTest';
 import DenseTable from './components/table';
 import Facts from './components/facts';
 import MyContext from './components/myContext';
+import { useState } from 'react';
 function App() {
   
-  const sharedValue = 'hello from MyContext'
+  // const sharedValue = 'hello from MyContext' 
+  var[sharedValue,setSharedValue]=useState('hello from MyContext')
   
   return (
  <MyContext.Provider value={sharedValue}>
+
  <BrowserRouter>
   <ResponsiveAppBar/>
   {/* <UserMenuDemo/> */}
@@ -43,9 +46,11 @@ function App() {
   <Footer/>
  </BrowserRouter>
  
-  
- 
+   <input type="text" placeholder='change MyContext shareValue' onChange={(e)=>{setSharedValue(e.target.value)}}></input>
+
  </MyContext.Provider>
+
+
 
   );
 }
