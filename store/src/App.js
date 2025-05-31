@@ -18,13 +18,14 @@ import DenseTable from './components/table';
 import Facts from './components/facts';
 import MyContext from './components/myContext';
 import { useState } from 'react';
+import ThemeContext from './components/theme';
 function App() {
   
   // const sharedValue = 'hello from MyContext' 
-  var[sharedValue,setSharedValue]=useState('hello from MyContext')
+  var[sharedValue,setSharedValue]=useState('darkTheme')
   
   return (
- <MyContext.Provider value={sharedValue}>
+ <ThemeContext.Provider value={{sharedValue,setSharedValue}}>
 
  <BrowserRouter>
   <ResponsiveAppBar/>
@@ -45,10 +46,11 @@ function App() {
   {/* <MediaCard/> */}
   <Footer/>
  </BrowserRouter>
- 
-   <input type="text" placeholder='change MyContext shareValue' onChange={(e)=>{setSharedValue(e.target.value)}}></input>
 
- </MyContext.Provider>
+  
+   
+
+ </ThemeContext.Provider>
 
 
 

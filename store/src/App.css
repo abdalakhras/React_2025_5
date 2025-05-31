@@ -39,3 +39,11 @@ h1{
     transform: rotate(360deg);
   }
 }
+ .darkTheme{
+background-color: black;
+color: yellowgreen;
+ }
+ .lightTheme{
+  background-color: wheat;
+  color: red;
+ }

@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 export default function Facts (){
 
-    const contextValue = useContext(MyContext)
+    // const {sharedValue,setSharedValue} = useContext(MyContext)
 
 const[facts,setFacts]=useState([])
 
@@ -26,11 +26,12 @@ const fetchFacts = async ()=>{
 
 fetchFacts()
 
-},[])
+},[]) 
 
     return(
         <>
-        <h1>{contextValue}</h1>
+        {/* <input type="text" placeholder='change MyContext shareValue' onChange={(e)=>{setSharedValue(e.target.value)}}></input>
+        <h1>{sharedValue}</h1> */}
         <br/>
         <h1>Facts</h1>
         <p>
