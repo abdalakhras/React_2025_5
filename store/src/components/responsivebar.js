@@ -82,7 +82,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
 
-const {sharedValue,setSharedValue} = useContext(ThemeContext)
+const {themeValue,setThemValue} = useContext(ThemeContext)
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -132,16 +132,17 @@ const {sharedValue,setSharedValue} = useContext(ThemeContext)
         }} onChange={(e)=>{
           console.log('swith changed',e.target.checked)
           if(e.target.checked){
-          setSharedValue('darkTheme'); //for dark  theme
-          }
+          setThemValue('darkTheme'); //for dark  theme
+        
+        }
           else{
-           setSharedValue('lightTheme') //for light theme
+           setThemValue('lightTheme') //for light theme
           }
         }}/>}
         label="MUI switch"
       />
        </FormGroup>
-       <p className={sharedValue}>this test for dark/light theme</p>
+       <p className={themeValue}>this test for dark/light theme</p>
         {/* end of dark/light mode code */}
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton

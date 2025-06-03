@@ -22,11 +22,11 @@ import ThemeContext from './components/theme';
 function App() {
   
   // const sharedValue = 'hello from MyContext' 
-  var[sharedValue,setSharedValue]=useState('darkTheme')
-  
+  var[sharedValue,setSharedValue]=useState('hello from my context')
+  const[themeValue,setThemValue]=useState('darkTheme')
   return (
- <ThemeContext.Provider value={{sharedValue,setSharedValue}}>
-
+ <ThemeContext.Provider value={{themeValue,setThemValue}}>
+<MyContext.Provider value={{sharedValue,setSharedValue}}>
  <BrowserRouter>
   <ResponsiveAppBar/>
   {/* <UserMenuDemo/> */}
@@ -47,7 +47,7 @@ function App() {
   <Footer/>
  </BrowserRouter>
 
-  
+  </MyContext.Provider>
    
 
  </ThemeContext.Provider>

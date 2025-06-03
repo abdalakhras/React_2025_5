@@ -38,6 +38,11 @@ h1{
   to {
     transform: rotate(360deg);
   }
+  
+}
+
+.factsColor{
+  color: crimson;
 }
  .darkTheme{
 background-color: black;
