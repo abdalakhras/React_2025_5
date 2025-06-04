@@ -24,6 +24,7 @@ function App() {
   // const sharedValue = 'hello from MyContext' 
   var[sharedValue,setSharedValue]=useState('hello from my context')
   const[themeValue,setThemValue]=useState('darkTheme')
+  
   return (
  <ThemeContext.Provider value={{themeValue,setThemValue}}>
 <MyContext.Provider value={{sharedValue,setSharedValue}}>

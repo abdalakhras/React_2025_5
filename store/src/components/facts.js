@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import MyContext from "./myContext";
 import { useContext } from "react";
+import ThemeContext from "./theme";
 
 export default function Facts (){
 
    const{sharedValue,setSharedValue}=useContext(MyContext)
-
+    const{themeValue,setThemValue}=useContext(ThemeContext)
 const[facts,setFacts]=useState([])
 
 useEffect(()=>{
@@ -29,15 +30,15 @@ fetchFacts()
 },[]) 
 
     return(
-        <>
+        <div className={themeValue}>
         <input type="text" placeholder="change sharedvalue" onChange={(e)=>{setSharedValue(e.target.value)}}></input>
         <h1>{sharedValue}</h1>
         <br/>
         <h1>Facts</h1>
-        <p className="factsColor">
+        <p className={"factsColor"}>
             {facts ? facts.text : 'Loading...'}
         </p>
         
-        </>
+        </div>
     )
 }

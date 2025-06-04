@@ -12,6 +12,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { colors } from '@mui/material';
+import { ClassNames } from '@emotion/react';
+import ThemeContext from './theme';
+import { useContext } from 'react';
 
 
 
@@ -71,9 +74,9 @@ export default function DenseTable() {
   const[updatedProtein,setUpdatedProtein]=useState()
   const[updatedId,setUpdatedId]=useState(0)
 
-  
+  const{themeValue,setThemValue}=useContext(ThemeContext)
   return (
-    <>
+    <div className={themeValue}>
     <br/>
     <form onSubmit={(e)=>{
       e.preventDefault()
@@ -89,7 +92,7 @@ export default function DenseTable() {
     </form>
     <br/>
     <hr/>
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className={themeValue}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -174,6 +177,6 @@ export default function DenseTable() {
           </form>
         </Box>
       </Modal>
-    </>
+    </div>
   );
 }
