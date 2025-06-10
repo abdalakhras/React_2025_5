@@ -24,6 +24,9 @@ export default function Footer (){
             <li>
                 <Link to='/facts'>Facts</Link>
             </li>
+            <li>
+                <Link to='/todocomponent'>ToDoComponent</Link>
+            </li>
             </ul>
         </footer>
     )

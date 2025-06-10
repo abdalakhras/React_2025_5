@@ -19,6 +19,8 @@ import Facts from './components/facts';
 import MyContext from './components/myContext';
 import { useState } from 'react';
 import ThemeContext from './components/theme';
+import ToDoComponent from './components/toDoComponent';
+
 function App() {
   
   // const sharedValue = 'hello from MyContext' 
@@ -38,6 +40,7 @@ function App() {
     <Route path='/table' element={<DenseTable/>}/>
     <Route path='/objectMapTest' element={<MediaCard/>}></Route>
     <Route path='/facts' element={<Facts/>}></Route>
+    <Route path='/todocomponent' element={<ToDoComponent/>}></Route>
   </Routes>
 
   <br/>
