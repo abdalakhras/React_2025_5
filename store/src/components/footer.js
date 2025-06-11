@@ -4,28 +4,31 @@ import ColorButtons from "./colorButton";
 export default function Footer (){
     return(
         <footer className="footer">
-            <ul>
-                <li>
+            <ul id="footerul">
+                <li className="footerli">
                     <Link className='txtDcrtion' to='/'>Home</Link>
                     </li>
-                <li>
+                <li className="footerli">
                     <Link to='/greetings'>Greetings</Link>
                     </li>
 
-                <li>
+                <li className="footerli">
                     <Link className='txtDcrtion' to = '/newComponent'>NewComponent</Link>
                 </li>
-                <li>
+                <li className="footerli">
                     <Link to='/objectMaptest'>objectMapTest</Link>
                 </li>
-                <li>
+                <li className="footerli">
                     <Link to= '/table'>table</Link>
                 </li>
-            <li>
+            <li className="footerli">
                 <Link to='/facts'>Facts</Link>
             </li>
-            <li>
+            <li className="footerli">
                 <Link to='/todocomponent'>ToDoComponent</Link>
+            </li>
+            <li className="footerli">
+                <Link to='/todo'>ToDooooo</Link>
             </li>
             </ul>
         </footer>

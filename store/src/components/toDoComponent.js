@@ -16,10 +16,10 @@ function Reducer(state,action){
 switch(action.type){
     case 'add':
         console.log(action)
-        return{...state, text: action.payload, id: action.iD, completed: action.comp}
+        return{...state, text: action.text, id: action.iD, completed: action.comp}
         case 'delete':
             console.log(action)
-            return{...state,text:action.payload}
+            return{...state,text:action.text}
             case 'toggle':
                 console.log(state)
                 return {...state,completed:action.comp}
@@ -59,14 +59,14 @@ const handleCompleted=()=>{
 
 <input onChange={(e)=>{setUpdatedState(e.target.value)}}></input>
     <Button onClick={()=>{
-        dispatch({type:'add',payload:updatedState,id:iD ,comp:completed})
+        dispatch({type:'add',text:updatedState,id:iD ,comp:completed})
         handleId()
         handleCompleted()
         }}>add</Button>    
 
      <Button onClick={()=>{dispatch({type:'toggle'}) }}>toggle</Button> 
 
-    <Button onClick={()=>{dispatch({type:'delete',payload:""})}}>delete</Button> 
+    <Button onClick={()=>{dispatch({type:'delete',text:""})}}>delete</Button> 
     <hr/>
      <p>{state.text}</p>
      <hr/>

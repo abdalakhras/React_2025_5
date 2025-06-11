@@ -5,7 +5,7 @@ import Nav from './components/nav';
 
 import {BrowserRouter , Route , Routes} from 'react-router-dom'
 import Greetings from './components/greetings';
-import Footer from './components/footer';
+
 
 import NewComponent from './components/newComponent';
 
@@ -20,6 +20,8 @@ import MyContext from './components/myContext';
 import { useState } from 'react';
 import ThemeContext from './components/theme';
 import ToDoComponent from './components/toDoComponent';
+import ToDo from './components/todooo';
+import Footer from './components/footer';
 
 function App() {
   
@@ -41,6 +43,7 @@ function App() {
     <Route path='/objectMapTest' element={<MediaCard/>}></Route>
     <Route path='/facts' element={<Facts/>}></Route>
     <Route path='/todocomponent' element={<ToDoComponent/>}></Route>
+     <Route path='/todo' element={<ToDo/>}></Route>
   </Routes>
 
   <br/>
