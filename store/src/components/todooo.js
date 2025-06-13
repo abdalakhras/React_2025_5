@@ -5,12 +5,16 @@ const initialstate = []
 
 function Reducer(state,action){
 switch(action.type){
+
     case "add":
         return [...state,{id:Date.now(),text:action.text,completed:false}]
+
         case 'toggle':
             return state.map(todo=> todo.id===action.id ? {...todo,completed:!todo.completed}:todo)
+
             case 'delete' : 
             return
+            
             default:
                 return state;
 }

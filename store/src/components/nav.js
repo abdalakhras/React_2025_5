@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom'
 export default function Nav(){
     return(
         <nav>
-            <ul>
-                <li className='txtDcrtion'>
+            <ul id='navUl'>
+                <li className='txtDcrtion navLi'>
                     <Link className='txtDcrtion' to='/'>Home</Link>
                     </li>
-                <li>
+                <li  className='txtDcrtion navLi'>
                     <Link to='/greetings'>Greetings</Link>
                     </li>
 
-                <li></li>
-                <li></li>
+                
             </ul>
         </nav>
     )

@@ -10,19 +10,35 @@ import Button from '@mui/material/Button';
 
 
 
-var initialstate = {text :"hi" , id:0 , completed: false}
+var initialstate = [{text:'hi',id:-1,completed:false}]
 
-function Reducer(state,action){
+function Reducer(currentState,action){
 switch(action.type){
     case 'add':
-        console.log(action)
-        return{...state, text: action.text, id: action.iD, completed: action.comp}
+        console.log(currentState)
+         return [...currentState,{text:action.text,id:action.id,completed:false}]
+
         case 'delete':
-            console.log(action)
-            return{...state,text:action.text}
+            console.log("Before:", currentState);
+            console.log("Removing ID:", action.id);
+
+            const newCurrentState =currentState.filter((t)=>{
+                console.log("Comparing", t.id, "!==", action.id)
+                return t.id !== action.id
+            })
+            console.log("After:", newCurrentState);
+            return newCurrentState;
+
             case 'toggle':
-                console.log(state)
-                return {...state,completed:action.comp}
+
+               const toggledcomplete = currentState.map((td)=>{
+                    if(td.id == action.id){
+                    return {...td,completed:!td.completed}
+                }else{
+                    return td;
+                }
+               })
+                return toggledcomplete
       
 }
   
@@ -34,45 +50,49 @@ export default function ToDoComponent() {
 
 
   
-var[state,dispatch]=useReducer(Reducer,initialstate)
+var[updatedState,dispatch]=useReducer(Reducer,initialstate)
    
-var [updatedState,setUpdatedState]=React.useState('')
+var [updatedInput,setUpdatedInput]=React.useState('')
 
 const [iD,setID]=React.useState(0)
 const handleId =()=>setID(iD + 1)
 
 
 
-const [completed,setCompleted]=React.useState(false)
-const handleCompleted=()=>{
-    if(iD %2 !==0){
-        setCompleted(true)
-    }else{
-        setCompleted(false)
-    }
-}
-
 
 
   return (
     <>    
 
-<input onChange={(e)=>{setUpdatedState(e.target.value)}}></input>
+<input onChange={(e)=>{setUpdatedInput(e.target.value)}}></input>
     <Button onClick={()=>{
-        dispatch({type:'add',text:updatedState,id:iD ,comp:completed})
+        dispatch({type:'add',text:updatedInput,id:iD})
         handleId()
-        handleCompleted()
+        console.log(updatedState)
         }}>add</Button>    
 
-     <Button onClick={()=>{dispatch({type:'toggle'}) }}>toggle</Button> 
+        <ul>
+            {updatedState.map(todo=>(
+                <div key={todo.id}>
+                    <p>todo Text :{todo.text}, todo Id : {todo.id}, todo completed: {todo.completed ?'yes':'no'}
 
-    <Button onClick={()=>{dispatch({type:'delete',text:""})}}>delete</Button> 
+                        <Button color='error' onClick={()=>{
+                            dispatch({type:'delete',id:todo.id})
+    
+                            }}>delete</Button> 
+
+                        <Button color='success' onClick={()=>{
+                            dispatch({type:'toggle',id:todo.id})
+                        }}>toggle</Button>
+                        </p>
+                    
+                    
+                </div>
+            ))}
+        </ul>
     <hr/>
-     <p>{state.text}</p>
-     <hr/>
-     <p>{state.text}</p>
-     <hr/>
-     <p></p>
+     
+    
     </>
     
   );
